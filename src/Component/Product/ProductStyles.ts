@@ -3,13 +3,9 @@ import { currentTheme } from '../../theme';
 
 const {width} = Dimensions.get('window');
 
-const HomeStyle = StyleSheet.create({
-  container: {
-    backgroundColor: currentTheme.background,
-    flex: 1,
-    padding: 10
-  },
+const ProductStyle = StyleSheet.create({
   item: {
+    backgroundColor: currentTheme.background,
     alignItems: 'center',
     justifyContent: 'center',
     width: width / 2 - 20,
@@ -17,7 +13,14 @@ const HomeStyle = StyleSheet.create({
     minHeight: 100,
     padding: 10,
     borderRadius: 12,
-    elevation: 1,
+    shadowColor: '#000',
+    shadowOffset: {
+      width: 0,
+      height: 2,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 3.84,
+    elevation: 5,
   },
   title: {
     fontSize: 16,
@@ -26,7 +29,8 @@ const HomeStyle = StyleSheet.create({
     marginTop: 10,
     width: '90%',
     height: 200,
+    marginBottom: 6,
   },
 });
 
-export default HomeStyle;
+export default ProductStyle;

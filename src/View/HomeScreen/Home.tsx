@@ -1,38 +1,26 @@
+import React from 'react';
+import {Text, Image, View, FlatList} from 'react-native';
+import useHomeController from './HomeController';
+import HomeStyle from './styled';
 
-import React from "react";
-import { Text, Image, View, FlatList } from "react-native"
-import useHomeController from "./HomeController";
-import HomeStyle from "./styled";
-import { Product } from "../../Type/Producst";
-
-interface CardComponentProps {
-    product: Product;
-};
-
-const CardComponent: React.FC<CardComponentProps> = ({ product }) => (
-    <View style={HomeStyle.item}>
-      <Text>
-        {product.title}
-      </Text>
-      <Image style={HomeStyle.image} source={{ uri: product.image }} />
-    </View>
-  );
-  
+//Component
+import SearchCompt from '../../Component/Search/SearchCompt';
+import ProductCompont from '../../Component/Product/ProductCompt';
 
 const HomeScreen: React.FC = () => {
+  const {products} = useHomeController();
 
-    const { products } = useHomeController();
-
-    return (
-        <View style={HomeStyle.container}>
-            <FlatList
-                data={products}
-                renderItem={({ item }) => <CardComponent product={item} />}
-                keyExtractor={(item) => String(item.id)}
-                numColumns={2} 
-            />
-        </View>
-    )
-}
+  return (
+    <View style={HomeStyle.container}>
+      <SearchCompt />
+      <FlatList
+        data={products}
+        renderItem={({item}) => <ProductCompont product={item} />}
+        keyExtractor={item => String(item.id)}
+        numColumns={2}
+      />
+    </View>
+  );
+};
 
 export default HomeScreen;

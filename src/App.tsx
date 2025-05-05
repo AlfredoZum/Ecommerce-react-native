@@ -6,7 +6,7 @@
  */
 
 import React from 'react';
-import NavigationScreens from './View/index';
+import NavigationScreens from './Navigation/index';
 
 const App = () => {
   return (
