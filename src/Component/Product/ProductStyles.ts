@@ -6,7 +6,7 @@ const {width} = Dimensions.get('window');
 const ProductStyle = StyleSheet.create({
   item: {
     backgroundColor: currentTheme.background,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     justifyContent: 'center',
     width: width / 2 - 20,
     margin: 5,
@@ -24,13 +24,19 @@ const ProductStyle = StyleSheet.create({
   },
   title: {
     fontSize: 16,
-  },
-  image: {
-    marginTop: 10,
-    width: '90%',
-    height: 200,
     marginBottom: 6,
   },
+  image: {
+    width: '100%',
+    height: undefined,
+    aspectRatio: 1,
+    resizeMode: 'contain',
+    marginBottom: 6,
+  },
+  price: {
+    fontSize: 20,
+    fontWeight: 'bold',
+  }
 });
 
 export default ProductStyle;

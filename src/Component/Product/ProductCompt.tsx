@@ -1,4 +1,4 @@
-import {View, Image, Text} from 'react-native';
+import {View, Image, Text, TouchableOpacity} from 'react-native';
 import {Product} from '../../Type/Producst';
 import ProductStyle from './ProductStyles';
 import useProductController from './ProductController';
@@ -9,13 +9,14 @@ interface CardComponentProps {
 
 const ProductCompont: React.FC<CardComponentProps> = ({product}) => {
 
-    const { cutText } = useProductController();
+    const { cutText, goToProductDetail } = useProductController();
 
   return (
-    <View style={ProductStyle.item}>
+    <TouchableOpacity style={ProductStyle.item} onPress={() => goToProductDetail(product)}>
       <Image style={ProductStyle.image} source={{uri: product.image}} />
-      <Text>{cutText(product.title)}  {}</Text>
-    </View>
+      <Text style={ProductStyle.title}>{cutText(product.title)}  {}</Text>
+      <Text style={ProductStyle.price}>$ {product.price}  {}</Text>
+    </TouchableOpacity>
   );
 };
 

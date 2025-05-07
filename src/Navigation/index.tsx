@@ -3,11 +3,16 @@ import {NavigationContainer} from '@react-navigation/native';
 import {
   createNativeStackNavigator,
 } from '@react-navigation/native-stack';
-import HomeScreen from '../View/HomeScreen/Home';
+
 import { defaultStackNavigationOptions } from './navigationOptions';
+
+// Screen
+import HomeScreen from '../View/HomeScreen/Home';
+import ProductScreen from '../View/ProductDetailScreen/ProductDetail';
 
 type RootStackParamList = {
   Home: undefined;
+  ProductDetail: undefined;
 };
 
 const Stack = createNativeStackNavigator<RootStackParamList>();
@@ -21,7 +26,11 @@ const NavigationScreens = () => {
           component={HomeScreen}
           options={{ headerTitle: 'Home' }}
         />
-        {/* <Stack.Screen name="Profile" component={ProfileScreen} /> */}
+         <Stack.Screen
+          name="ProductDetail"
+          component={ProductScreen}
+          options={{ headerTitle: 'Detalle' }}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   );
